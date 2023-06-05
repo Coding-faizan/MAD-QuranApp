@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 String str = listView.getAdapter().getItem(position).toString();
                 Intent intent = new Intent(getApplicationContext(),verses_activity.class);
                 intent.putExtra("surah",str);
+                intent.putExtra("index",position);
                 startActivity(intent);
             }
         });

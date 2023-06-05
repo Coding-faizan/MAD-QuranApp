@@ -574,6 +574,14 @@ public class QDH {
         return list;
     }
 
+    public ArrayList<String> GetEnglishSurahNames() {
+        ArrayList<String> list = new ArrayList<String>();
+        for (int index = 0; index < englishSurahNames.length; ++index)
+            list.add(englishSurahNames[index]);
+        return list;
+    }
+
+
     public int getSurahStart(int surahNumber) {
         return SSP[surahNumber];
     }

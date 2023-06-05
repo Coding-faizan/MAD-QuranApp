@@ -21,13 +21,23 @@ public class MainActivity extends AppCompatActivity {
 
         surahNames = findViewById(R.id.surahList);
 
-
         ArrayList<String> surahnames = obj.GetSurahNames();
+        ArrayList<String> englishSurahNames = obj.GetEnglishSurahNames();
 
+        ArrayList<String> combinedList = new ArrayList<>();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,surahnames);
+        int size = Math.min(surahnames.size(), englishSurahNames.size());
 
+        for (int i = 0; i < size; i++) {
+            String surahName = surahnames.get(i);
+            String englishSurahName = englishSurahNames.get(i);
 
+            // Right justify surah name and left justify English surah name
+            String combinedItem = String.format("%-80s %s",englishSurahName,surahName);
+            combinedList.add(combinedItem);
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, combinedList);
         surahNames.setAdapter(adapter);
 
     }
